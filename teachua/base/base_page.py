@@ -1,8 +1,8 @@
-from teachua.base.base_component import BaseComponent
+from teachua.base.base import Base
 from teachua.components.header_component import HeaderComponent
 
 
-class BasePage(BaseComponent):
+class BasePage(Base):
 
     def __init__(self, driver):
         super().__init__(driver)

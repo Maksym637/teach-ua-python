@@ -23,3 +23,4 @@ class LoginComponentLocators:
     PASSWORD_INPUT = (By.XPATH, "//input[@id='basic_password']")
     SIGN_IN_BUTTON = (By.XPATH, "//button[contains(@class, 'login-button')]")
     SUCCESS_MESSAGE = (By.XPATH, "//div[contains(@class, 'ant-message-success')]")
+    ERROR_MESSAGE = (By.XPATH, "//div[contains(@class, 'ant-message-error')]")

@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from utils.constants import TimeoutVariables
 
 
-class BaseComponent:
+class Base:
 
     def __init__(self, driver):
         self.driver = driver

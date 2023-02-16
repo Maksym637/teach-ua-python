@@ -1,9 +1,9 @@
-from teachua.base.base_component import BaseComponent
-from utils.component_locators import GuestMenuComponentLocators
+from teachua.base.base import Base
+from teachua.locators.component_locators import GuestMenuComponentLocators
 from teachua.components.login_component import LoginComponent
 
 
-class GuestMenuComponent(BaseComponent):
+class GuestMenuComponent(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -24,5 +24,5 @@ class GuestMenuComponent(BaseComponent):
         return LoginComponent(self.driver)
 
 
-class UserMenuComponent(BaseComponent):
+class UserMenuComponent(Base):
     pass

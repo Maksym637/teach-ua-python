@@ -1,16 +1,17 @@
-from teachua.base.base_page import BaseComponent
-from utils.component_locators import HeaderComponentLocators
+from teachua.base.base import Base
+from teachua.locators.component_locators import HeaderComponentLocators
 from teachua.components.menu_component import GuestMenuComponent, UserMenuComponent
+from utils.constants import Scripts
 
 
-class HeaderComponent(BaseComponent):
+class HeaderComponent(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
         self.locator = HeaderComponentLocators
     
     def is_logged(self):
-        return self.driver.execute_script("localStorage.getItem('role')") != None
+        return self.driver.execute_script(Scripts.LOCAL_STORAGE.value) != None
 
     def get_user_icon(self):
         if self.is_logged():

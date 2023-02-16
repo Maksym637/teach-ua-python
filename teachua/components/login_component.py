@@ -1,7 +1,8 @@
-from teachua.base.base_component import BaseComponent
-from utils.component_locators import LoginComponentLocators
+from teachua.base.base import Base
+from teachua.locators.component_locators import LoginComponentLocators
 
-class LoginComponent(BaseComponent):
+
+class LoginComponent(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -34,3 +35,6 @@ class LoginComponent(BaseComponent):
     
     def get_success_message(self):
         return self.wait_element_to_appear(self.locator.SUCCESS_MESSAGE).text
+    
+    def get_error_message(self):
+        return self.wait_element_to_appear(self.locator.ERROR_MESSAGE).text
