@@ -13,7 +13,7 @@ class BaseComponent:
         self.driver.get(url)
 
     def wait_element_to_appear(self, locator):
-        self.wait.until(EC.visibility_of_element_located(locator))
+        return self.wait.until(EC.visibility_of_element_located(locator))
     
     def wait_element_to_be_clickable(self, locator):
-        self.wait.until(EC.element_to_be_clickable(locator))
+        return self.wait.until(EC.element_to_be_clickable(locator))

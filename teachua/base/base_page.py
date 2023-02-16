@@ -8,5 +8,5 @@ class BasePage(BaseComponent):
         super().__init__(driver)
         self.header = HeaderComponent(driver)
     
-    def get_header(self):
+    def move_to_header(self):
         return self.header
