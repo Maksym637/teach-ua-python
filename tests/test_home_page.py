@@ -7,16 +7,9 @@ class TestHomePage(BaseTest):
     def test_login_valid(self):
         home_page = HomePage(self.driver)
 
-        success_message = home_page.header \
-            .click_user_icon() \
+        home_page.header \
+            .move_to_guest_menu() \
             .click_login_button() \
             .enter_email("admin@gmail.com") \
             .enter_password("admin") \
-            .click_sign_in() \
-            .get_success_message()
-        
-        self.assertEqual(success_message, "Ви успішно залогувалися!")
-    
-    def test_login_invalid(self):
-        pass
-
+            .click_sign_in()

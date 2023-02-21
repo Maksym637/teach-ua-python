@@ -7,7 +7,6 @@ from teachua.components.menu_component import (
     )
 from teachua.pages.clubs_page import ClubsPage
 from teachua.pages.news_page import NewsPage
-from utils.constants import Scripts, UserRoles
 
 
 class HeaderComponent(BasePage):
@@ -15,9 +14,6 @@ class HeaderComponent(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.locator = HeaderComponentLocators
-    
-    def is_logged(self):
-        return self.driver.execute_script(Scripts.LOCAL_STORAGE.value)
     
     def click_clubs_button(self):
         self.wait_element_to_be_clickable(self.locator.CLUBS_BUTTON).click()
@@ -27,10 +23,14 @@ class HeaderComponent(BasePage):
         self.wait_element_to_be_clickable(self.locator.NEWS_BUTTON).click()
         return NewsPage(self.driver)
     
-    def click_user_icon(self):
-        self.wait_element_to_be_clickable(self.locator.USER_ICON).click()
-        if self.is_logged() == UserRoles.USER.value:
-            return UserMenuComponent(self.driver)
-        elif self.is_logged() == UserRoles.ADMIN.value:
-            return AdminMenuComponent(self.driver)
+    def move_to_guest_menu(self):
+        self.wait_element_to_be_clickable(self.locator.USER_ICON_NOT_LOGIN).click()
         return GuestMenuComponent(self.driver)
+    
+    def move_to_user_menu(self):
+        self.wait_element_to_be_clickable(self.locator.USER_ICON_LOGIN).click()
+        return UserMenuComponent(self.driver)
+    
+    def move_to_admin_menu(self):
+        self.wait_element_to_be_clickable(self.locator.USER_ICON_LOGIN).click()
+        return AdminMenuComponent(self.driver)
