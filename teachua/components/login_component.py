@@ -1,36 +1,27 @@
-from teachua.base.base import Base
+from teachua.base.base_page import BasePage
 from teachua.locators.component_locators import LoginComponentLocators
 
 
-class LoginComponent(Base):
+class LoginComponent(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
         self.locator = LoginComponentLocators
     
-    def get_email(self):
-        return self.wait_element_to_be_clickable(self.locator.EMAIL_INPUT)
-    
     def enter_email(self, email):
-        self.get_email().click()
-        self.get_email().clear()
-        self.get_email().send_keys(email)
+        self.wait_element_to_be_clickable(self.locator.EMAIL_INPUT).click()
+        self.wait_element_to_be_clickable(self.locator.EMAIL_INPUT).clear()
+        self.wait_element_to_be_clickable(self.locator.EMAIL_INPUT).send_keys(email)
         return self
-    
-    def get_password(self):
-        return self.wait_element_to_be_clickable(self.locator.PASSWORD_INPUT)
     
     def enter_password(self, password):
-        self.get_password().click()
-        self.get_password().clear()
-        self.get_password().send_keys(password)
+        self.wait_element_to_be_clickable(self.locator.PASSWORD_INPUT).click()
+        self.wait_element_to_be_clickable(self.locator.PASSWORD_INPUT).clear()
+        self.wait_element_to_be_clickable(self.locator.PASSWORD_INPUT).send_keys(password)
         return self
     
-    def get_sign_in(self):
-        return self.wait_element_to_be_clickable(self.locator.SIGN_IN_BUTTON)
-    
     def click_sign_in(self):
-        self.get_sign_in().click()
+        self.wait_element_to_be_clickable(self.locator.SIGN_IN_BUTTON).click()
         return self
     
     def get_success_message(self):

@@ -13,3 +13,8 @@ class Scripts(Enum):
 class Urls(Enum):
     HOME_PAGE = "https://speak-ukrainian.org.ua/dev/"
     PROFILE_PAGE = "https://speak-ukrainian.org.ua/dev/user/1/page"
+
+
+class UserRoles(Enum):
+    USER = "ROLE_USER"
+    ADMIN = "ROLE_ADMIN"

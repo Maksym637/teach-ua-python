@@ -1,12 +1,22 @@
-from teachua.base.base import Base
-from teachua.components.header_component import HeaderComponent
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from utils.constants import TimeoutVariables
 
 
-class BasePage(Base):
+class BasePage:
 
     def __init__(self, driver):
-        super().__init__(driver)
-        self.header = HeaderComponent(driver)
+        self.driver = driver
+        self.wait = WebDriverWait(driver, TimeoutVariables.EXPLICIT_WAIT.value)
     
-    def move_to_header(self):
-        return self.header
+    def open(self, url):
+        self.driver.get(url)
+
+    def wait_element_to_appear(self, locator):
+        return self.wait.until(EC.visibility_of_element_located(locator))
+    
+    def wait_element_to_be_clickable(self, locator):
+        return self.wait.until(EC.element_to_be_clickable(locator))
+    
+    def wait_elements_to_appear(self, locators):
+        return self.wait.until(EC.visibility_of_all_elements_located(locators))
