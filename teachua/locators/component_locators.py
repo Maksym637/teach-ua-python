@@ -59,3 +59,49 @@ class EditProfileComponentLocators:
         By.XPATH, "//button[contains(@class, 'submit-button')]"
     )
     CLOSE_BUTTON = (By.XPATH, "(//button[@class='ant-modal-close'])[2]")
+
+
+class CentreStepLocators:
+    PREVIOUS_STEP = (By.XPATH, "//button[contains(@class, 'prev-btn')]")
+    NEXT_STEP = (By.XPATH, "//button[contains(@class, 'next-btn')]")
+
+
+class CentreMainInfoComponentLocators:
+    NAME_FIELD = (By.XPATH, "//input[@id='basic_name']")
+    ADD_LOCATION_BUTTON = (By.XPATH, "//button[contains(@class, 'add-location-btn')]")
+    LOCATIONS_CHOICE = (By.XPATH, "//div[@id='basic_locations']/*[position() <= 3]")
+
+
+class CentreContactsComponentLocators:
+    PHONE_FIELD = (By.XPATH, "//input[@id='contacts_contactТелефон']")
+
+
+class CentreDescriptionComponentLocators:
+    DESCRIPTION_FIELD = (By.XPATH, "//textarea[@class='ant-input editor-textarea']")
+
+
+class CentreClubsComponentLocators:
+    CLUBS_CHOICE = (
+        By.XPATH, "//div[@class='ant-checkbox-group']/*[position() <= 5]//label"
+    )
+    FINISH_BUTTON = (By.XPATH, "//button[@class='finish-btn']")
+
+
+class AddLocationComponentLocators:
+    NAME_FIELD = (By.XPATH, "//input[@id='name']")
+    CITY_FIELD = (By.XPATH, "(//div[@class='ant-select-selector'])[2]")
+    CITIES_LIST = (
+        By.XPATH, "//div[@id='cityName_list']/..//div[contains(@class, 'inner')]/*[position() <= 5]"
+    )
+    REGION_FIELD = (By.XPATH, "(//div[@class='ant-select-selector'])[3]")
+    REGIONS_LIST = (
+        By.XPATH, "//div[@id='districtName_list']/..//div[contains(@class, 'inner')]/*[position() <= 5]"
+    )
+    ADDRESS_FIELD = (By.XPATH, "//input[@id='address']")
+    COORDINATES_FIELD = (By.XPATH, "//input[@id='coordinates']")
+    PHONE_FIELD = (By.XPATH, "//input[@id='phone']")
+    ADD_BUTTON = (By.XPATH, "//div[contains(@class, 'add-location-button')]//button")
+    ERROR_MESSAGES = (
+        By.XPATH, "//div[contains(@class, 'modal-add-club')]//div[contains(@class, 'explain-error')]"
+    )
+    CLOSE_BUTTON = (By.XPATH, "(//span[@class='ant-modal-close-x'])[3]")

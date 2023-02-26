@@ -1,8 +1,8 @@
 from teachua.base.base_page import BasePage
 from teachua.locators.page_locators import ProfilePageLocators
 from teachua.components.edit_profile_component import EditProfileComponent
-from teachua.components.club_component import ClubComponent
-from teachua.components.centre_component import CentreComponent
+from teachua.components.add_club_component import ClubMainInfoComponent
+from teachua.components.add_centre_component import CentreMainInfoComponent
 
 
 class ProfilePage(BasePage):
@@ -28,8 +28,8 @@ class ProfilePage(BasePage):
     
     def click_add_club_button(self):
         self.wait_element_to_be_clickable(self.locator.ADD_CLUB_BUTTON).click()
-        return ClubComponent(self.driver)
+        return ClubMainInfoComponent(self.driver)
     
     def click_add_centre_button(self):
         self.wait_element_to_be_clickable(self.locator.ADD_CENTRE_BUTTON).click()
-        return CentreComponent(self.driver)
+        return CentreMainInfoComponent(self.driver)

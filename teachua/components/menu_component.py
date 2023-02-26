@@ -5,8 +5,8 @@ from teachua.locators.component_locators import (
     )
 from teachua.components.register_component import RegistrationComponent
 from teachua.components.login_component import LoginComponent
-from teachua.components.club_component import ClubComponent
-from teachua.components.centre_component import CentreComponent
+from teachua.components.add_club_component import ClubMainInfoComponent
+from teachua.components.add_centre_component import CentreMainInfoComponent
 from teachua.pages.profile_page import ProfilePage
 
 
@@ -33,11 +33,11 @@ class UserMenuComponent(BasePage):
     
     def click_add_club(self):
         self.wait_element_to_be_clickable(self.locator.ADD_CLUB).click()
-        return ClubComponent(self.driver)
+        return ClubMainInfoComponent(self.driver)
     
     def click_add_centre(self):
         self.wait_element_to_be_clickable(self.locator.ADD_CENTRE).click()
-        return CentreComponent(self.driver)
+        return CentreMainInfoComponent(self.driver)
     
     def click_profile_account(self):
         self.wait_element_to_be_clickable(self.locator.PROFILE_ACCOUNT).click()
