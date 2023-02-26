@@ -2,7 +2,7 @@ from teachua.base.base_page import BasePage
 from teachua.locators.component_locators import (
     GuestMenuComponentLocators, 
     UserMenuComponentLocators, 
-    )
+)
 from teachua.components.register_component import RegistrationComponent
 from teachua.components.login_component import LoginComponent
 from teachua.components.add_club_component import ClubMainInfoComponent

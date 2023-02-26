@@ -61,9 +61,9 @@ class EditProfileComponentLocators:
     CLOSE_BUTTON = (By.XPATH, "(//button[@class='ant-modal-close'])[2]")
 
 
-class CentreStepLocators:
-    PREVIOUS_STEP = (By.XPATH, "//button[contains(@class, 'prev-btn')]")
-    NEXT_STEP = (By.XPATH, "//button[contains(@class, 'next-btn')]")
+class StepLocators:
+    PREVIOUS_STEP = (By.XPATH, "//button[contains(@class, 'prev')]")
+    NEXT_STEP = (By.XPATH, "//button[contains(@class, 'next')]")
 
 
 class CentreMainInfoComponentLocators:
@@ -105,3 +105,20 @@ class AddLocationComponentLocators:
         By.XPATH, "//div[contains(@class, 'modal-add-club')]//div[contains(@class, 'explain-error')]"
     )
     CLOSE_BUTTON = (By.XPATH, "(//span[@class='ant-modal-close-x'])[3]")
+
+
+class ClubMainInfoComponentLocators:
+    NAME_FIELD = (By.XPATH, "//input[@id='basic_name']")
+    CATEGORIES_BOXES = (By.XPATH, "//label/span[contains(@class, 'ant-checkbox')]")
+    AGE_FROM = (By.XPATH, "//input[@id='basic_ageFrom']")
+    AGE_TO = (By.XPATH, "//input[@id='basic_ageTo']")
+
+
+class ClubContactsComponentLocators:
+    PHONE_FIELD = (By.XPATH, "//input[@id='basic_contactТелефон']")
+
+
+class ClubDescriptionComponentLocators:
+    DESCRIPTION_FIELD = (By.XPATH, "//textarea[@id='basic_description']")
+    FINISH_BUTTON = (By.XPATH, "//span[text()='Завершити']")
+    DESCRIPTION_ERROR_MSG = (By.XPATH, "//div[@id='basic_description_help']")

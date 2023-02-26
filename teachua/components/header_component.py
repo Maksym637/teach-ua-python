@@ -3,7 +3,7 @@ from teachua.locators.component_locators import HeaderComponentLocators
 from teachua.components.menu_component import (
     GuestMenuComponent, 
     UserMenuComponent
-    )
+)
 from teachua.pages.clubs_page import ClubsPage
 from teachua.pages.news_page import NewsPage
 

@@ -1,11 +1,11 @@
 from teachua.base.base_page import BasePage
 from teachua.locators.component_locators import (
-    CentreStepLocators, 
+    StepLocators,
     CentreMainInfoComponentLocators, 
     CentreContactsComponentLocators,
     CentreDescriptionComponentLocators,
     CentreClubsComponentLocators
-    )
+)
 from teachua.components.location_component import AddLocationComponent
 
 
@@ -13,7 +13,7 @@ class CentreStep(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.step_locator = CentreStepLocators
+        self.step_locator = StepLocators
     
     def get_previous_step(self):
         return self.wait_element_to_be_clickable(self.step_locator.PREVIOUS_STEP)
@@ -45,7 +45,7 @@ class CentreMainInfoComponent(CentreStep):
         return self.wait_elements_to_appear(self.locator.LOCATIONS_CHOICE)[number].text
     
     def click_next_step(self):
-        self.wait_element_to_be_clickable(self.get_next_step()).click()
+        self.get_next_step().click()
         return CentreContactsComponent(self.driver)
 
 
