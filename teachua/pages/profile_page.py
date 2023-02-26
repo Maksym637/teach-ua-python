@@ -11,23 +11,12 @@ class ProfilePage(BasePage):
         super().__init__(driver)
         self.locator = ProfilePageLocators
     
-    def get_menu_title(self):
-        return self.wait_element_to_appear(self.locator.MENU_TITLE).text
-    
-    def get_profile_title(self):
-        return self.wait_element_to_appear(self.locator.PROFILE_TITLE).text
-    
-    def get_user_name(self):
-        return self.wait_element_to_appear(self.locator.USER_NAME_FIELD).text
-    
-    def get_user_role(self):
-        return self.wait_element_to_appear(self.locator.USER_ROLE_FIELD).text
-    
-    def get_user_phone(self):
-        return self.wait_element_to_appear(self.locator.USER_PHONE_FIELD).text
-    
-    def get_user_email(self):
-        return self.wait_element_to_appear(self.locator.USER_EMAIL_FIELD).text
+    def get_profile_content(self):
+        fields = self.wait_different_elements_to_appear([
+            self.locator.MENU_TITLE, self.locator.PROFILE_TITLE, self.locator.USER_NAME_FIELD, 
+            self.locator.USER_ROLE_FIELD, self.locator.USER_PHONE_FIELD, self.locator.USER_EMAIL_FIELD
+        ])
+        return [field.text for field in fields]
     
     def click_edit_profile_button(self):
         self.wait_element_to_be_clickable(self.locator.EDIT_PROFILE_BUTTON).click()

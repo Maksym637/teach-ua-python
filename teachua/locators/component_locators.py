@@ -17,10 +17,20 @@ class UserMenuComponentLocators:
     ADD_CLUB = (By.XPATH, "//li[contains(@data-menu-id, 'add_club')]")
     ADD_CENTRE = (By.XPATH, "//li[contains(@data-menu-id, 'add_centre')]")
     PROFILE_ACCOUNT = (By.XPATH, "//li[contains(@data-menu-id, 'profile')]")
+    LOG_OUT = (By.XPATH, "//li[contains(@data-menu-id, 'logout')]")
 
 
-class AdminMenuComponentLocators:
-    pass
+class RegistrationComponentLocators:
+    LAST_NAME_FIELD = (By.XPATH, "//input[@id='lastName']")
+    FIRST_NAME_FIELD = (By.XPATH, "//input[@id='firstName']")
+    PHONE_FIELD = (By.XPATH, "//input[@id='phone']")
+    EMAIL_FIELD = (By.XPATH, "//input[@id='email']")
+    PASSWORD_FIELD = (By.XPATH, "//input[@id='password']")
+    CONFIRM_PASSWORD_FIELD = (By.XPATH, "//input[@id='confirm']")
+    REGISTER_BUTTON = (By.XPATH, "//button[contains(@class, 'registration-button')]")
+    CLOSE_BUTTON = (
+        By.XPATH, "//div[contains(@class, 'modal-registration')]//span[contains(@class, 'close-x')]"
+    )
 
 
 class LoginComponentLocators:

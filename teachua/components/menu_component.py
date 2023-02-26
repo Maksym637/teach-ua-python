@@ -2,8 +2,8 @@ from teachua.base.base_page import BasePage
 from teachua.locators.component_locators import (
     GuestMenuComponentLocators, 
     UserMenuComponentLocators, 
-    AdminMenuComponentLocators
     )
+from teachua.components.register_component import RegistrationComponent
 from teachua.components.login_component import LoginComponent
 from teachua.components.club_component import ClubComponent
 from teachua.components.centre_component import CentreComponent
@@ -18,7 +18,7 @@ class GuestMenuComponent(BasePage):
     
     def click_register_button(self):
         self.wait_element_to_be_clickable(self.locator.REGISTER_BUTTON).click()
-        return self
+        return RegistrationComponent(self.driver)
     
     def click_login_button(self):
         self.wait_element_to_be_clickable(self.locator.LOGIN_BUTTON).click()
@@ -42,7 +42,7 @@ class UserMenuComponent(BasePage):
     def click_profile_account(self):
         self.wait_element_to_be_clickable(self.locator.PROFILE_ACCOUNT).click()
         return ProfilePage(self.driver)
-
-
-class AdminMenuComponent(UserMenuComponent):
-    pass
+    
+    def click_log_out(self):
+        self.wait_element_to_be_clickable(self.locator.LOG_OUT).click()
+        return self

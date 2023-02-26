@@ -9,7 +9,18 @@ class TestHomePage(BaseTest):
 
         home_page.header \
             .move_to_guest_menu() \
-            .click_login_button() \
-            .enter_email("admin@gmail.com") \
-            .enter_password("admin") \
-            .click_sign_in()
+            .click_register_button() \
+            .enter_last_name("user") \
+            .enter_first_name("user") \
+            .enter_phone("0121212121") \
+            .enter_email("user@gmail.com") \
+            .enter_password("Auser_123") \
+            .confirm_password("Auser_123") \
+            .click_close_button()
+        
+        last_name_value = home_page.header \
+            .move_to_guest_menu() \
+            .click_register_button() \
+            .get_last_name_value()
+        
+        print(last_name_value)
