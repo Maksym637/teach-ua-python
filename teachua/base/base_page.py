@@ -1,16 +1,17 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from utils.constants import TimeoutVariables
+from utils.constants import TimeoutVariables, Urls
 
 
 class BasePage:
 
-    def __init__(self, driver):
+    def __init__(self, driver, base_url=Urls.HOME_PAGE.value):
         self.driver = driver
+        self.base_url = base_url
         self.wait = WebDriverWait(driver, TimeoutVariables.EXPLICIT_WAIT.value)
     
-    def open(self, url):
-        self.driver.get(url)
+    def open(self, url=""):
+        self.driver.get(self.base_url + url)
 
     def wait_element_to_appear(self, locator):
         return self.wait.until(EC.visibility_of_element_located(locator))

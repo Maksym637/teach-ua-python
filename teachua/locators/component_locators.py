@@ -125,6 +125,7 @@ class ClubContactsComponentLocators:
 class ClubDescriptionComponentLocators:
     DESCRIPTION_FIELD = (By.XPATH, "//textarea[@id='basic_description']")
     FINISH_BUTTON = (By.XPATH, "//span[text()='Завершити']")
+    DESCRIPTION_SUCESS = (By.XPATH, "//span[contains(@class, 'success')]")
     DESCRIPTION_ERROR_MSG = (By.XPATH, "//div[@id='basic_description_help']")
 
 

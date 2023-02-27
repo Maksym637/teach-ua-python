@@ -8,4 +8,7 @@ class TimeoutVariables(Enum):
 
 class Urls(Enum):
     HOME_PAGE = "https://speak-ukrainian.org.ua/dev/"
-    PROFILE_PAGE = "https://speak-ukrainian.org.ua/dev/user/1/page"
+
+
+class Paths(Enum):
+    CREDENTIALS_PATH = "./credentials.ini"

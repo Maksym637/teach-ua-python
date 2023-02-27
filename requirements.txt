@@ -10,6 +10,7 @@ idna==3.4
 iniconfig==2.0.0
 outcome==1.2.0
 packaging==23.0
+parameterized==0.8.1     
 pluggy==1.0.0
 pycparser==2.21
 PySocks==1.7.1

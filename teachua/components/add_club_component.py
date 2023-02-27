@@ -81,6 +81,9 @@ class ClubDescriptionComponent(ClubStep):
         self.wait_element_to_be_clickable(self.locator.DESCRIPTION_FIELD).send_keys(description)
         return self
     
+    def get_description_success(self):
+        return self.wait_element_to_appear(self.locator.DESCRIPTION_SUCESS).is_displayed()
+
     def get_description_error_msg(self):
         return self.wait_element_to_appear(self.locator.DESCRIPTION_ERROR_MSG).text
     
