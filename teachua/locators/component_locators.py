@@ -122,3 +122,14 @@ class ClubDescriptionComponentLocators:
     DESCRIPTION_FIELD = (By.XPATH, "//textarea[@id='basic_description']")
     FINISH_BUTTON = (By.XPATH, "//span[text()='Завершити']")
     DESCRIPTION_ERROR_MSG = (By.XPATH, "//div[@id='basic_description_help']")
+
+
+class NewsCardComponentLocators:
+    NEWS_DATE = (By.XPATH, ".//div[@id='newsDate']")
+    NEWS_TITLE = (By.XPATH, ".//div[@id='newsTitle']")
+    DETAILS_BUTTON = (By.XPATH, ".//span[@aria-label='arrow-right']")
+
+
+class ClubCardComponentLocators:
+    CLUB_TITLE = (By.XPATH, ".//div[@class='name']")
+    DETAILS_BUTTON = (By.XPATH, ".//button[contains(@class, 'details-button')]")
