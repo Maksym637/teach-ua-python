@@ -4,6 +4,10 @@ from selenium.webdriver.common.by import By
 class HeaderComponentLocators:
     CLUBS_BUTTON = (By.XPATH, "//li[contains(@data-menu-id,'clubs')]")
     NEWS_BUTTON = (By.XPATH, "//li[contains(@data-menu-id,'news')]")
+    LOCATION_BUTTON = (By.XPATH, "//div[@class='ant-dropdown-trigger city']")
+    LOCATIONS_LIST = (
+        By.XPATH, "//ul[contains(@class, 'ant-dropdown-menu-root')]//li[@role='menuitem']"
+    )
     USER_ICON_NOT_LOGIN = (By.XPATH, "//span[contains(@class, 'avatarIfNotLogin')]")
     USER_ICON_LOGIN = (By.XPATH, "//span[contains(@class, 'avatarIfLogin')]")
 

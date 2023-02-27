@@ -34,3 +34,8 @@ class ViewClubPageLocators:
     SUBSCRIBE_BUTTON = (
         By.XPATH, "//div[@class='apply-box']//button[contains(@class, 'apply-button')]"
     )
+
+
+class ClubsPageLocators:
+    CLUBS_TITLE = (By.XPATH, "//h2[@class='city-name']")
+    CLUB_CARDS = (By.XPATH, "//div[@class='ant-card-body']")

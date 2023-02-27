@@ -22,6 +22,20 @@ class HeaderComponent(BasePage):
         self.wait_element_to_be_clickable(self.locator.NEWS_BUTTON).click()
         return NewsPage(self.driver)
     
+    def click_location_button(self):
+        self.wait_element_to_be_clickable(self.locator.LOCATION_BUTTON).click()
+        return self
+    
+    def get_all_locations(self):
+        return self.wait_elements_to_appear(self.locator.LOCATIONS_LIST)
+    
+    def parse_location_list(self):
+        return [location.text for location in self.get_all_locations()]
+    
+    def choose_location(self, location_name):
+        self.get_all_locations()[self.parse_location_list().index(location_name)].click()
+        return self
+    
     def move_to_guest_menu(self):
         self.wait_element_to_be_clickable(self.locator.USER_ICON_NOT_LOGIN).click()
         return GuestMenuComponent(self.driver)
