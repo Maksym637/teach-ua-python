@@ -6,7 +6,7 @@ class HeaderComponentLocators:
     NEWS_BUTTON = (By.XPATH, "//li[contains(@data-menu-id,'news')]")
     LOCATION_BUTTON = (By.XPATH, "//div[@class='ant-dropdown-trigger city']")
     LOCATIONS_LIST = (
-        By.XPATH, "//ul[contains(@class, 'ant-dropdown-menu-root')]//li[@role='menuitem']"
+        By.XPATH, "(//ul[contains(@class, 'dropdown-menu-vertical')])[2]//li[contains(@class, 'child')]"
     )
     USER_ICON_NOT_LOGIN = (By.XPATH, "//span[contains(@class, 'avatarIfNotLogin')]")
     USER_ICON_LOGIN = (By.XPATH, "//span[contains(@class, 'avatarIfLogin')]")
