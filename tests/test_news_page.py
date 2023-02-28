@@ -1,5 +1,7 @@
 from tests.precondition_test import LoginRunner
 from teachua.pages.home_page import HomePage
+from teachua.pages.news_page import NewsPage
+from utils.functions import sort_dates
 from parameterized import parameterized
 
 
@@ -50,3 +52,24 @@ class TestNewsPage(LoginRunner):
         self.assertEqual(actual_news_buttons, [True, True, True, True])
         self.assertEqual(actual_clubs_buttons, [True, True, True])
         self.assertEqual(actual_clubs_title, expected_clubs_title)
+    
+    """Implementation of TUA-146
+    """
+    def test_news_blocks_order(self):
+        home_page = HomePage(self.driver)
+        news_page = NewsPage(self.driver)
+
+        actual_news_date = []
+
+        news_amount = home_page.header \
+            .click_news_button() \
+            .get_all_news()
+        
+        for i in range(news_amount):
+            actual_news_date.append(
+                news_page.choose_news_card(i).get_news_date()
+            )
+        
+        self.assertListEqual(
+            actual_news_date, sorted(actual_news_date, key=sort_dates, reverse=True)
+        )

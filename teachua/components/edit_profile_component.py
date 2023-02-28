@@ -1,7 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 from teachua.base.base_page import BasePage
 from teachua.locators.component_locators import EditProfileComponentLocators
-from utils.sleeper import wait
+from utils.functions import wait
 
 
 class EditProfileComponent(BasePage):
