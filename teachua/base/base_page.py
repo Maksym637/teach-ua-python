@@ -22,8 +22,11 @@ class BasePage:
     def wait_elements_to_appear(self, locator):
         return self.wait.until(EC.visibility_of_all_elements_located(locator))
     
-    def wait_different_elements_to_appear(self, elements):
+    def wait_different_elements_to_appear(self, locators):
         result_elements = []
-        for element in elements:
-            result_elements.append(self.wait_element_to_appear(element))
+        for locator in locators:
+            result_elements.append(self.wait_element_to_appear(locator))
         return result_elements
+    
+    def scroll_until_element_in_view(self, element):
+        return self.driver.execute_script("arguments[0].scrollIntoView();", element)

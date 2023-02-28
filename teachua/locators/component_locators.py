@@ -78,7 +78,8 @@ class StepLocators:
 class CentreMainInfoComponentLocators:
     NAME_FIELD = (By.XPATH, "//input[@id='basic_name']")
     ADD_LOCATION_BUTTON = (By.XPATH, "//button[contains(@class, 'add-location-btn')]")
-    LOCATIONS_CHOICE = (By.XPATH, "//div[@id='basic_locations']/*[position() <= 3]")
+    LOCATIONS_LIST = (By.XPATH, "//div[contains(@class, 'location-list')]")
+    LOCATIONS_CHOICE = (By.XPATH, "//div[@id='basic_locations']//label")
 
 
 class CentreContactsComponentLocators:

@@ -41,6 +41,12 @@ class CentreMainInfoComponent(CentreStep):
         self.wait_elements_to_appear(self.locator.LOCATIONS_CHOICE)[number].click()
         return self
     
+    def get_name_new_location(self):
+        self.scroll_until_element_in_view(
+            self.wait_element_to_appear(self.locator.LOCATIONS_LIST)
+        )
+        return self.wait_elements_to_appear(self.locator.LOCATIONS_CHOICE)[-1].text  
+    
     def get_location_title(self, number):
         return self.wait_elements_to_appear(self.locator.LOCATIONS_CHOICE)[number].text
     
