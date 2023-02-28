@@ -1,6 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 from teachua.base.base_page import BasePage
 from teachua.locators.component_locators import EditProfileComponentLocators
+from utils.sleeper import wait
 
 
 class EditProfileComponent(BasePage):
@@ -20,6 +21,10 @@ class EditProfileComponent(BasePage):
         self.wait_element_to_be_clickable(self.locator.EDIT_LAST_NAME_FIELD).send_keys(last_name)
         return self
     
+    @wait(before=0.5)
+    def get_alert_last_name(self):
+        return self.wait_element_to_appear(self.locator.ALERT_MSG_LAST_NAME).text
+    
     def enter_new_first_name(self, first_name):
         self.wait_element_to_be_clickable(self.locator.EDIT_FIRST_NAME_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.EDIT_FIRST_NAME_FIELD).send_keys(
@@ -28,6 +33,10 @@ class EditProfileComponent(BasePage):
         self.wait_element_to_be_clickable(self.locator.EDIT_FIRST_NAME_FIELD).send_keys(first_name)
         return self
     
+    @wait(before=0.5)
+    def get_alert_first_name(self):
+        return self.wait_element_to_appear(self.locator.ALERT_MSG_FIRST_NAME).text
+    
     def enter_new_phone(self, phone):
         self.wait_element_to_be_clickable(self.locator.EDIT_PHONE_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.EDIT_PHONE_FIELD).send_keys(
@@ -35,6 +44,10 @@ class EditProfileComponent(BasePage):
         )
         self.wait_element_to_be_clickable(self.locator.EDIT_PHONE_FIELD).send_keys(phone)
         return self
+    
+    @wait(before=0.5)
+    def get_alert_phone(self):
+        return self.wait_element_to_appear(self.locator.ALERT_MSG_PHONE).text
     
     def click_change_password(self):
         self.wait_element_to_be_clickable(self.locator.CHANGE_PASSWORD_SECTION).click()
@@ -48,6 +61,10 @@ class EditProfileComponent(BasePage):
         self.wait_element_to_be_clickable(self.locator.EDIT_CURRENT_PASSWORD).send_keys(password)
         return self
     
+    @wait(before=0.5)
+    def get_alert_current_password(self):
+        return self.wait_element_to_appear(self.locator.ALERT_MSG_CURRENT_PASSWORD).text
+    
     def enter_new_password(self, password):
         self.wait_element_to_be_clickable(self.locator.NEW_PASSWORD_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.NEW_PASSWORD_FIELD).send_keys(
@@ -55,6 +72,10 @@ class EditProfileComponent(BasePage):
         )
         self.wait_element_to_be_clickable(self.locator.NEW_PASSWORD_FIELD).send_keys(password)
         return self
+    
+    @wait(before=0.5)
+    def get_alert_new_password(self):
+        return self.wait_element_to_appear(self.locator.ALERT_MSG_NEW_PASSWORD).text
     
     def confirm_new_password(self, password):
         self.wait_element_to_be_clickable(self.locator.CONFIRM_NEW_PASSWORD).click()
@@ -64,13 +85,16 @@ class EditProfileComponent(BasePage):
         self.wait_element_to_be_clickable(self.locator.CONFIRM_NEW_PASSWORD).send_keys(password)
         return self
     
-    def get_error_messages(self):
-        messages = self.wait_elements_to_appear(self.locator.ERROR_MESSAGES)
-        return [msg.text for msg in messages]
+    @wait(before=0.5)
+    def get_alert_confirm_password(self):
+        return self.wait_element_to_appear(self.locator.ALERT_MSG_CONFIRM_PASSWORD).text
     
     def click_save_changes_button(self):
         self.wait_element_to_be_clickable(self.locator.SAVE_CHANGES_BUTTON).click()
         return self
+    
+    def is_save_changes_enabled(self):
+        return self.wait_element_to_appear(self.locator.SAVE_CHANGES_BUTTON).is_enabled()
     
     def click_close_button(self):
         self.wait_element_to_be_clickable(self.locator.CLOSE_BUTTON).click()

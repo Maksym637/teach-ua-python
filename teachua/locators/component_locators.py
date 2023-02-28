@@ -48,17 +48,22 @@ class LoginComponentLocators:
 class EditProfileComponentLocators:
     EDIT_PROFILE_TITLE = (By.XPATH, "//div[@class='edit-header']")
     EDIT_LAST_NAME_FIELD = (By.XPATH, "//input[@id='edit_lastName']")
+    ALERT_MSG_LAST_NAME = (By.XPATH, "//div[@id='edit_lastName_help' and @role='alert']")
     EDIT_FIRST_NAME_FIELD = (By.XPATH, "//input[@id='edit_firstName']")
+    ALERT_MSG_FIRST_NAME = (By.XPATH, "//div[@id='edit_firstName_help' and @role='alert']")
     EDIT_PHONE_FIELD = (By.XPATH, "//input[@id='edit_phone']")
+    ALERT_MSG_PHONE = (By.XPATH, "//div[@id='edit_phone_help' and @role='alert']")
     UPLOAD_PHOTO_FIELD = (By.XPATH, "//input[@id='edit_urlLogo']")
     UPLOADED_PHOTO_APPEARED = (
         By.XPATH, "//div[contains(@class, 'ant-upload-list-item-done')"
     )
     CHANGE_PASSWORD_SECTION = (By.XPATH, "//input[@class='checkbox']")
     EDIT_CURRENT_PASSWORD = (By.XPATH, "//input[@id='edit_currentPassword']")
+    ALERT_MSG_CURRENT_PASSWORD = (By.XPATH, "//div[@id='edit_currentPassword_help' and @role='alert']")
     NEW_PASSWORD_FIELD = (By.XPATH, "//input[@id='edit_password']")
+    ALERT_MSG_NEW_PASSWORD = (By.XPATH, "//div[@id='edit_password_help' and @role='alert']")
     CONFIRM_NEW_PASSWORD = (By.XPATH, "//input[@id='edit_confirmPassword']")
-    ERROR_MESSAGES = (By.XPATH, "//div[@class='ant-form-item-explain-error']")
+    ALERT_MSG_CONFIRM_PASSWORD = (By.XPATH, "//div[@id='edit_confirmPassword_help' and @role='alert']")
     SAVE_CHANGES_BUTTON = (
         By.XPATH, "//button[contains(@class, 'submit-button')]"
     )
