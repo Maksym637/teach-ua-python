@@ -33,6 +33,9 @@ class CentreMainInfoComponent(CentreStep):
         self.wait_element_to_be_clickable(self.locator.NAME_FIELD).send_keys(name)
         return self
     
+    def get_alert_centre_name(self):
+        return self.wait_element_to_appear(self.locator.ALERT_MSG_NAME_FIELD).text
+    
     def click_add_location(self):
         self.wait_element_to_be_clickable(self.locator.ADD_LOCATION_BUTTON).click()
         return AddLocationComponent(self.driver)
@@ -53,6 +56,10 @@ class CentreMainInfoComponent(CentreStep):
     def click_next_step(self):
         self.get_next_step().click()
         return CentreContactsComponent(self.driver)
+    
+    def click_next_step_error(self):
+        self.get_next_step().click()
+        return self
 
 
 class CentreContactsComponent(CentreStep):

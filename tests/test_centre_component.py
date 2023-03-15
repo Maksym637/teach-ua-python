@@ -6,6 +6,19 @@ from parameterized import parameterized
 
 class TestCentreComponent(LoginRunner):
 
+    """Implementation of TUA-252
+    """
+    def test_centre_step(self):
+        home_page = HomePage(self.driver)
+
+        actual_alert_msg = home_page.header \
+            .move_to_user_menu() \
+            .click_add_centre() \
+            .click_next_step_error() \
+            .get_alert_centre_name()
+        
+        self.assertEqual(actual_alert_msg, "Некоректна назва центру")
+
     """Implementation of TUA-158
     """
     @parameterized.expand([

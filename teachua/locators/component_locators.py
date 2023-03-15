@@ -6,7 +6,7 @@ class HeaderComponentLocators:
     NEWS_BUTTON = (By.XPATH, "//li[contains(@data-menu-id,'news')]")
     LOCATION_BUTTON = (By.XPATH, "//div[@class='ant-dropdown-trigger city']")
     LOCATIONS_LIST = (
-        By.XPATH, "(//ul[contains(@class, 'dropdown-menu-vertical')])[2]//li[contains(@class, 'child')]"
+        By.XPATH, "(//div[contains(@Class, 'ant-dropdown-show-arrow') and not(contains(@Class, 'ant-dropdown-hidden'))])//ul//li"
     )
     USER_ICON_NOT_LOGIN = (By.XPATH, "//span[contains(@class, 'avatarIfNotLogin')]")
     USER_ICON_LOGIN = (By.XPATH, "//span[contains(@class, 'avatarIfLogin')]")
@@ -77,6 +77,7 @@ class StepLocators:
 
 class CentreMainInfoComponentLocators:
     NAME_FIELD = (By.XPATH, "//input[@id='basic_name']")
+    ALERT_MSG_NAME_FIELD = (By.XPATH, "//div[@id='basic_name_help']")
     ADD_LOCATION_BUTTON = (By.XPATH, "//button[contains(@class, 'add-location-btn')]")
     LOCATIONS_LIST = (By.XPATH, "//div[contains(@class, 'location-list')]")
     LOCATIONS_CHOICE = (By.XPATH, "//div[@id='basic_locations']//label")
