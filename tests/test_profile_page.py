@@ -17,8 +17,6 @@ combined_error_msg = [
 
 class TestProfilePage(LoginRunner):
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-328", "TUA-328")
-    @allure.severity(allure.severity_level.CRITICAL)
     @parameterized.expand([
         (("firstName" * 5), "Ім'я" + combined_error_msg[0]),
         ("!@#$%^&,", "Ім'я" + combined_error_msg[1]),
@@ -31,6 +29,8 @@ class TestProfilePage(LoginRunner):
         ("firstName'", "Ім'я" + combined_error_msg[3]),
         ("", combined_error_msg[4] + "ім'я")
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-328", "TUA-328")
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_edit_first_name_invalid(self, first_name, expected_alert_msg):
         home_page = HomePage(self.driver)
         edit_profile = EditProfileComponent(self.driver)
@@ -45,8 +45,6 @@ class TestProfilePage(LoginRunner):
         self.assertEqual(actual_alert_msg, expected_alert_msg)
         self.assertFalse(edit_profile.is_save_changes_enabled())
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-343", "TUA-343")
-    @allure.severity(allure.severity_level.CRITICAL)
     @parameterized.expand([
         (("lastName" * 5), "Прізвище" + combined_error_msg[0]),
         ("!@#$%^&,", "Прізвище" + combined_error_msg[1]),
@@ -59,6 +57,8 @@ class TestProfilePage(LoginRunner):
         ("lastName'", "Прізвище" + combined_error_msg[3]),
         ("", combined_error_msg[4] + "прізвище")
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-343", "TUA-343")
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_edit_last_name_invalid(self, last_name, expected_alert_msg):
         home_page = HomePage(self.driver)
         edit_profile = EditProfileComponent(self.driver)
@@ -73,8 +73,6 @@ class TestProfilePage(LoginRunner):
         self.assertEqual(actual_alert_msg, expected_alert_msg)
         self.assertFalse(edit_profile.is_save_changes_enabled())
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-356", "TUA-356")
-    @allure.severity(allure.severity_level.CRITICAL)
     @parameterized.expand([
         ("065987458", "Телефон не відповідає вказаному формату"),
         ("06598521475", "Телефон не відповідає вказаному формату"),
@@ -84,6 +82,8 @@ class TestProfilePage(LoginRunner):
          "Телефон не може містити спеціальні символи"),
         ("", "Будь ласка введіть Ваш номер телефону")
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-356", "TUA-356")
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_edit_phone_invalid(self, phone, expected_alert_msg):
         home_page = HomePage(self.driver)
         edit_profile = EditProfileComponent(self.driver)

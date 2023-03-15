@@ -9,8 +9,6 @@ import allure
 
 class TestNewsPage(LoginRunner):
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-31", "TUA-31")
-    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("Київ", "Гуртки у місті Київ"),
         ("Харків", "Гуртки у місті Харків"),
@@ -18,6 +16,8 @@ class TestNewsPage(LoginRunner):
         ("Одеса", "Гуртки у місті Одеса"),
         ("Львів", "Гуртки у місті Львів")
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-31", "TUA-31")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_button_activity(self, location, expected_clubs_title):
         home_page = HomePage(self.driver)
 

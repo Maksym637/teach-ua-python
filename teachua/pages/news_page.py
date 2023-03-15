@@ -1,6 +1,7 @@
 from teachua.base.base_page import BasePage
 from teachua.locators.page_locators import NewsPageLocators
 from teachua.components.card_component import NewsCardComponent, ClubCardComponent
+import allure
 
 
 class NewsPage(BasePage):
@@ -21,10 +22,12 @@ class NewsPage(BasePage):
     def get_all_clubs(self):
         return len(self.wait_elements_to_appear(self.locator.CLUB_CARDS))
     
+    @allure.step("Choose certain news : news number in list is {card_number}")
     def choose_news_card(self, card_number):
         card_root = self.wait_elements_to_appear(self.locator.NEWS_CARDS)[card_number]
         return NewsCardComponent(self.driver, card_root)
     
+    @allure.step("Choose certain club : club number in list is {card_number}")
     def choose_club_card(self, card_number):
         card_root = self.wait_elements_to_appear(self.locator.CLUB_CARDS)[card_number]
         return ClubCardComponent(self.driver, card_root)

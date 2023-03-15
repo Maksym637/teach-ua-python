@@ -21,13 +21,13 @@ class TestCentreComponent(LoginRunner):
         
         self.assertEqual(actual_alert_msg, "Некоректна назва центру")
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-158", "TUA-158")
-    @allure.severity(allure.severity_level.CRITICAL)
     @parameterized.expand([
         ("location-1.1", 0, 0, "street 1.1", "50.4485253, 30.4735083", "1212121212", "location-1.1"),
         ("location-2.2", 2, 2, "street 2.2", "30.4485253, 50.4735083", "2424242424", "location-2.2"),
         ("test-location", 4, 4, "test 12, 12", "25.4485253, 25.4735083", "0681245611", "test-location")
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-158", "TUA-158")
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_add_location_valid(self, location_name, city_number, region_number, 
                           address, coordinates, phone, expected_new_location):
         home_page = HomePage(self.driver)

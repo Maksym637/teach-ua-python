@@ -1,6 +1,7 @@
 from teachua.base.base_page import BasePage
 from teachua.locators.component_locators import NewsCardComponentLocators, ClubCardComponentLocators
 from teachua.pages.view_item_page import ViewNewsPage, ViewClubPage
+import allure
 
 
 class NewsCardComponent(BasePage):
@@ -16,6 +17,7 @@ class NewsCardComponent(BasePage):
     def get_news_title(self):
         return self.root.find_element(*self.locator.NEWS_TITLE).text
     
+    @allure.step("Click on the details button")
     def click_details_button(self):
         self.root.find_element(*self.locator.DETAILS_BUTTON).click()
         return ViewNewsPage(self.driver)
@@ -31,6 +33,7 @@ class ClubCardComponent(BasePage):
     def get_club_title(self):
         return self.root.find_element(*self.locator.CLUB_TITLE)
     
+    @allure.step("Click on the details button")
     def click_details_button(self):
         self.root.find_element(*self.locator.DETAILS_BUTTON).click()
         return ViewClubPage(self.driver)

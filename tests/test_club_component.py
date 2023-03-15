@@ -14,8 +14,6 @@ error_messages = [
 
 class TestClubComponent(LoginRunner):
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-177", "TUA-177")
-    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("club1.1", 0, "10", "15", "1212121212", ("some data;" * 150)),
         ("club1.2", 6, "9", "14", "1313131313", ("text;" * 300)),
@@ -23,6 +21,8 @@ class TestClubComponent(LoginRunner):
         ("club1.4", 3, "11", "18", "2525252525", ("some text;" * 5)),
         ("club1.5", 9, "8", "13", "1717171717", ("club description;" * 3))
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-177", "TUA-177")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_description_field_valid(self, name, number, age_from, 
                                      age_to, phone, description):
         home_page = HomePage(self.driver)
@@ -42,9 +42,6 @@ class TestClubComponent(LoginRunner):
         
         self.assertTrue(is_input_success)
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-177", "TUA-177")
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-178", "TUA-178")
-    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("club2.1", 1, "12", "16", "1212121212", ("text;" * 300 + "!"), error_messages[0]),
         ("club2.2", 7, "10", "16", "1313131313", ("new test data ;" * 120), error_messages[0]),
@@ -52,6 +49,9 @@ class TestClubComponent(LoginRunner):
         ("club2.4", 2, "11", "18", "2525252525", ("эъüöäЫэъüöä" * 5), error_messages[2]),
         ("club2.5", 10, "8", "15", "1717171717", ("Aussätzige|Прокаженные" * 2), error_messages[2])
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-177", "TUA-177")
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-178", "TUA-178")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_description_field_invalid(self, name, number, age_from,
                                        age_to, phone, description, expected_error_msg):
         home_page = HomePage(self.driver)

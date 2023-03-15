@@ -8,13 +8,13 @@ import allure
 
 class TestHomePage(BaseTest):
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-454", "TUA-454")
-    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("firstUser", "firstUser", "0121212121", "user1@gmail.com", "User_111", "User_111",
          {"last_name": "firstUser", "first_name": "firstUser", "phone": "0121212121", 
           "email": "user1@gmail.com", "password": "User_111", "confirmation": "User_111"}),
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-454", "TUA-454")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_registration_form(self, last_name, first_name, phone, 
                                email, password, confirmation, expected_data):
         home_page = HomePage(self.driver)

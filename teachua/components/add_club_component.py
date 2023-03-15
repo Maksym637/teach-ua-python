@@ -5,6 +5,7 @@ from teachua.locators.component_locators import (
     ClubContactsComponentLocators,
     ClubDescriptionComponentLocators
 )
+import allure
 
 
 class ClubStep(BasePage):
@@ -26,25 +27,30 @@ class ClubMainInfoComponent(ClubStep):
         super().__init__(driver)
         self.locator = ClubMainInfoComponentLocators
     
+    @allure.step("Enter club name : {name}")
     def enter_club_name(self, name):
         self.wait_element_to_be_clickable(self.locator.NAME_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.NAME_FIELD).send_keys(name)
         return self
     
+    @allure.step("Choose category : category number in list is {number}")
     def choose_category(self, number):
         self.wait_elements_to_appear(self.locator.CATEGORIES_BOXES)[number].click()
         return self
     
+    @allure.step("Enter age from : {age_from}")
     def enter_age_from(self, age_from):
         self.wait_element_to_be_clickable(self.locator.AGE_FROM).click()
         self.wait_element_to_be_clickable(self.locator.AGE_FROM).send_keys(age_from)
         return self
     
+    @allure.step("Enter age to : {age_to}")
     def enter_age_to(self, age_to):
         self.wait_element_to_be_clickable(self.locator.AGE_TO).click()
         self.wait_element_to_be_clickable(self.locator.AGE_TO).send_keys(age_to)
         return self
     
+    @allure.step("Click on the next step")
     def click_next_step(self):
         self.get_next_step().click()
         return ClubContactsComponent(self.driver)
@@ -56,15 +62,18 @@ class ClubContactsComponent(ClubStep):
         super().__init__(driver)
         self.locator = ClubContactsComponentLocators
     
+    @allure.step("Enter phone number : {phone}")
     def enter_phone(self, phone):
         self.wait_element_to_be_clickable(self.locator.PHONE_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.PHONE_FIELD).send_keys(phone)
         return self
     
+    @allure.step("Click on the previous step")
     def click_previous_step(self):
         self.get_previous_step().click()
         return ClubMainInfoComponent(self.driver)
     
+    @allure.step("Click on the next step")
     def click_next_step(self):
         self.get_next_step().click()
         return ClubDescriptionComponent(self.driver)
@@ -76,6 +85,7 @@ class ClubDescriptionComponent(ClubStep):
         super().__init__(driver)
         self.locator = ClubDescriptionComponentLocators
 
+    @allure.step("Enter description : {description}")
     def enter_description(self, description):
         self.wait_element_to_be_clickable(self.locator.DESCRIPTION_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.DESCRIPTION_FIELD).send_keys(description)
@@ -87,10 +97,12 @@ class ClubDescriptionComponent(ClubStep):
     def get_description_error_msg(self):
         return self.wait_element_to_appear(self.locator.DESCRIPTION_ERROR_MSG).text
     
+    @allure.step("Click on the previous step")
     def click_previous_step(self):
         self.get_previous_step().click()
         return ClubContactsComponent(self.driver)
     
+    @allure.step("Click on the finish button")
     def click_finish_button(self):
         self.wait_element_to_be_clickable(self.locator.FINISH_BUTTON).click
         return self

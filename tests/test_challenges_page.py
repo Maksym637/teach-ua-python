@@ -9,14 +9,14 @@ import allure
 
 class TestChallengesPage(LoginRunner):
 
-    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-151", "TUA-151")
-    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("151", "test-name-1", "test-title-1", ("test-description-1" * 5),
          "test-img-1.jpg", "Челендж 'test-name-1' успішно доданий!"),
         ("152", "test-name-2", "test-title-2", ("test-description-2" * 5),
          "test-img-1.jpg", "Челендж 'test-name-2' успішно доданий!")
     ])
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-151", "TUA-151")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_add_challenge_valid(self, sort_number, name, title,
                                  description, photo_path, expected_success_msg):
         home_page = HomePage(self.driver)

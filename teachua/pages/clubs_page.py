@@ -1,6 +1,7 @@
 from teachua.base.base_page import BasePage
 from teachua.locators.page_locators import ClubsPageLocators
 from teachua.components.card_component import ClubCardComponent
+import allure
 
 
 class ClubsPage(BasePage):
@@ -15,6 +16,7 @@ class ClubsPage(BasePage):
     def get_all_clubs(self):
         return len(self.wait_elements_to_appear(self.locator.CLUB_CARDS))
     
+    @allure.step("Choose certain club : club number in list is {card_number}")
     def choose_club_card(self, card_number):
         card_root = self.wait_elements_to_appear(self.locator.CLUB_CARDS)[card_number]
         return ClubCardComponent(self.driver, card_root)
