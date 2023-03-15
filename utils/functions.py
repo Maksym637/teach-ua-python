@@ -1,3 +1,4 @@
+import os
 import time 
 
 def wait(*, before=0, after=0):
@@ -14,3 +15,5 @@ def sort_dates(dates_list):
     split_up = dates_list.split('.')
     return split_up[2], split_up[1], split_up[0]
 
+def get_photo_path(image):
+    return f"{os.getcwd()}\\utils\\data\\{image}"

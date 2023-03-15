@@ -39,3 +39,23 @@ class ViewClubPageLocators:
 class ClubsPageLocators:
     CLUBS_TITLE = (By.XPATH, "//h2[@class='city-name']")
     CLUB_CARDS = (By.XPATH, "//div[@class='ant-card-body']")
+
+
+class ChallengesPageLocators:
+    SEARCH_CHALLENGES = (By.XPATH, "//input[@placeholder='Пошук по челенджам']")
+    SEARCH_BUTTON = (By.XPATH, "//button[contains(@class, 'ant-input-search-button')]")
+    DELETE_CHALLENGE = (By.XPATH, "(//span[@class='table-action' and contains (text(), 'Видалити')])[1]")
+    CONFIRM_DELETE_CHALLENGE = (By.XPATH, "//button[contains(@class, 'popConfirm-ok-button')]")
+    ADD_CHALLENGE_BUTTON = (By.XPATH, "//a[@href='/dev/admin/addChallenge']")
+
+
+class AddChallengePageLocators:
+    CHALLENGES_LIST = (By.XPATH, "//a[@class='back-btn'and @href='/dev/admin/challenges']")
+    SORT_NUMBER_FIELD = (By.XPATH, "//input[@id='sortNumber']")
+    NAME_FIELD = (By.XPATH, "//input[@id='name']")
+    TITLE_FIELD = (By.XPATH, "//input[@id='title']")
+    DESCRIPTION_FIELD = (By.XPATH, "//div[contains(@class,'ql-editor')]")
+    PHOTO_FIELD = (By.XPATH, "//input[@id='picture']")
+    PHOTO_APPEARED = (By.XPATH, "//div[contains(@class, 'ant-upload-list-item-done')]")
+    SAVE_BUTTON = (By.XPATH, "//button[contains(@class, 'add-contact-type-button')]")
+    SUCCESS_MESSAGE = (By.XPATH, "//div[@class='ant-message-custom-content ant-message-success']")

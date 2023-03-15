@@ -1,13 +1,15 @@
 from teachua.base.base_page import BasePage
 from teachua.locators.component_locators import (
     GuestMenuComponentLocators, 
-    UserMenuComponentLocators, 
+    UserMenuComponentLocators,
+    AdminMenuComponentLocators
 )
 from teachua.components.register_component import RegistrationComponent
 from teachua.components.login_component import LoginComponent
 from teachua.components.add_club_component import ClubMainInfoComponent
 from teachua.components.add_centre_component import CentreMainInfoComponent
 from teachua.pages.profile_page import ProfilePage
+from teachua.pages.challenges_page import ChallengesPage
 
 
 class GuestMenuComponent(BasePage):
@@ -46,3 +48,16 @@ class UserMenuComponent(BasePage):
     def click_log_out(self):
         self.wait_element_to_be_clickable(self.locator.LOG_OUT).click()
         return self
+
+
+class AdminMenuComponent(UserMenuComponent):
+
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.locator_admin = AdminMenuComponentLocators
+    
+    def move_to_challenges(self):
+        self.wait_element_to_be_clickable(self.locator_admin.CONTENT_MENU).click()
+        self.wait_element_to_be_clickable(self.locator_admin.CHALLENGES_MENU).click()
+        self.wait_element_to_be_clickable(self.locator_admin.CHALLENGES_BUTTON).click()
+        return ChallengesPage(self.driver)

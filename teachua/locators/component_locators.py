@@ -24,6 +24,12 @@ class UserMenuComponentLocators:
     LOG_OUT = (By.XPATH, "//li[contains(@data-menu-id, 'logout')]")
 
 
+class AdminMenuComponentLocators:
+    CONTENT_MENU = (By.XPATH, "//div[contains(@aria-controls, 'content-popup')]")
+    CHALLENGES_MENU = (By.XPATH, "//div[contains(@aria-controls, 'challenges-submenu-popup')]")
+    CHALLENGES_BUTTON = (By.XPATH, "//ul[contains(@id, 'challenges-submenu-popup')]//a[contains(@href, 'challenges')]")
+
+
 class RegistrationComponentLocators:
     LAST_NAME_FIELD = (By.XPATH, "//input[@id='lastName']")
     FIRST_NAME_FIELD = (By.XPATH, "//input[@id='firstName']")
