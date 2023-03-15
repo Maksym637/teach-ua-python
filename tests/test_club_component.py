@@ -1,6 +1,8 @@
 from tests.precondition_test import LoginRunner
 from teachua.pages.home_page import HomePage
 from parameterized import parameterized
+from utils.constants import Urls
+import allure
 
 
 error_messages = [
@@ -12,8 +14,8 @@ error_messages = [
 
 class TestClubComponent(LoginRunner):
 
-    """Steps with valid data TUA-177
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-177", "TUA-177")
+    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("club1.1", 0, "10", "15", "1212121212", ("some data;" * 150)),
         ("club1.2", 6, "9", "14", "1313131313", ("text;" * 300)),
@@ -40,8 +42,9 @@ class TestClubComponent(LoginRunner):
         
         self.assertTrue(is_input_success)
 
-    """Steps with invalid data TUA-177 and full TUA-178
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-177", "TUA-177")
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-178", "TUA-178")
+    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("club2.1", 1, "12", "16", "1212121212", ("text;" * 300 + "!"), error_messages[0]),
         ("club2.2", 7, "10", "16", "1313131313", ("new test data ;" * 120), error_messages[0]),

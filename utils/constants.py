@@ -8,6 +8,7 @@ class TimeoutVariables(Enum):
 
 class Urls(Enum):
     HOME_PAGE = "https://speak-ukrainian.org.ua/dev/"
+    TEST_CASES = "https://jira.softserve.academy/browse"
 
 
 class Paths(Enum):

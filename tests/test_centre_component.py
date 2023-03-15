@@ -2,12 +2,14 @@ from tests.precondition_test import LoginRunner
 from teachua.pages.home_page import HomePage
 from teachua.components.add_centre_component import CentreMainInfoComponent
 from parameterized import parameterized
+from utils.constants import Urls
+import allure
 
 
 class TestCentreComponent(LoginRunner):
 
-    """Implementation of TUA-252
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-252", "TUA-252")
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_centre_step(self):
         home_page = HomePage(self.driver)
 
@@ -19,8 +21,8 @@ class TestCentreComponent(LoginRunner):
         
         self.assertEqual(actual_alert_msg, "Некоректна назва центру")
 
-    """Implementation of TUA-158
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-158", "TUA-158")
+    @allure.severity(allure.severity_level.CRITICAL)
     @parameterized.expand([
         ("location-1.1", 0, 0, "street 1.1", "50.4485253, 30.4735083", "1212121212", "location-1.1"),
         ("location-2.2", 2, 2, "street 2.2", "30.4485253, 50.4735083", "2424242424", "location-2.2"),
@@ -46,9 +48,9 @@ class TestCentreComponent(LoginRunner):
         actual_new_location = centre_main_info.get_name_new_location()
 
         self.assertEqual(actual_new_location, expected_new_location)
-    
-    """Implementation of TUA-160
-    """
+
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-160", "TUA-160")
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_add_location_invalid(self):
         home_page = HomePage(self.driver)
 

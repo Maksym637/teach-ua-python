@@ -2,12 +2,14 @@ from tests.base_test import BaseTest
 from teachua.pages.home_page import HomePage
 from teachua.components.register_component import RegistrationComponent
 from parameterized import parameterized
+from utils.constants import Urls
+import allure
 
 
 class TestHomePage(BaseTest):
 
-    """Implementation of TUA-454
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-454", "TUA-454")
+    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("firstUser", "firstUser", "0121212121", "user1@gmail.com", "User_111", "User_111",
          {"last_name": "firstUser", "first_name": "firstUser", "phone": "0121212121", 

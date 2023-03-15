@@ -3,12 +3,14 @@ from teachua.pages.home_page import HomePage
 from teachua.pages.news_page import NewsPage
 from utils.functions import sort_dates
 from parameterized import parameterized
+from utils.constants import Urls
+import allure
 
 
 class TestNewsPage(LoginRunner):
 
-    """Implementation of TUA-31
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-31", "TUA-31")
+    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("Київ", "Гуртки у місті Київ"),
         ("Харків", "Гуртки у місті Харків"),
@@ -53,8 +55,8 @@ class TestNewsPage(LoginRunner):
         self.assertEqual(actual_clubs_buttons, [True, True, True])
         self.assertEqual(actual_clubs_title, expected_clubs_title)
     
-    """Implementation of TUA-146
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-146", "TUA-146")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_news_blocks_order(self):
         home_page = HomePage(self.driver)
         news_page = NewsPage(self.driver)

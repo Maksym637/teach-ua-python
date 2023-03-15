@@ -3,12 +3,14 @@ from teachua.pages.home_page import HomePage
 from teachua.pages.challenges_page import AddChallengePage
 from parameterized import parameterized
 from utils.functions import get_photo_path
+from utils.constants import Urls
+import allure
 
 
 class TestChallengesPage(LoginRunner):
 
-    """Implementation of TUA-151
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-151", "TUA-151")
+    @allure.severity(allure.severity_level.NORMAL)
     @parameterized.expand([
         ("151", "test-name-1", "test-title-1", ("test-description-1" * 5),
          "test-img-1.jpg", "Челендж 'test-name-1' успішно доданий!"),

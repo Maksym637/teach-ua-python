@@ -2,6 +2,8 @@ from tests.precondition_test import LoginRunner
 from teachua.pages.home_page import HomePage
 from teachua.components.edit_profile_component import EditProfileComponent
 from parameterized import parameterized
+from utils.constants import Urls
+import allure
 
 
 combined_error_msg = [
@@ -15,8 +17,8 @@ combined_error_msg = [
 
 class TestProfilePage(LoginRunner):
 
-    """Implementation of TUA-328
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-328", "TUA-328")
+    @allure.severity(allure.severity_level.CRITICAL)
     @parameterized.expand([
         (("firstName" * 5), "Ім'я" + combined_error_msg[0]),
         ("!@#$%^&,", "Ім'я" + combined_error_msg[1]),
@@ -43,8 +45,8 @@ class TestProfilePage(LoginRunner):
         self.assertEqual(actual_alert_msg, expected_alert_msg)
         self.assertFalse(edit_profile.is_save_changes_enabled())
 
-    """Implementation of TUA-343
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-343", "TUA-343")
+    @allure.severity(allure.severity_level.CRITICAL)
     @parameterized.expand([
         (("lastName" * 5), "Прізвище" + combined_error_msg[0]),
         ("!@#$%^&,", "Прізвище" + combined_error_msg[1]),
@@ -71,8 +73,8 @@ class TestProfilePage(LoginRunner):
         self.assertEqual(actual_alert_msg, expected_alert_msg)
         self.assertFalse(edit_profile.is_save_changes_enabled())
 
-    """Implementation of TUA-356
-    """
+    @allure.issue(f"{Urls.TEST_CASES.value}/TUA-356", "TUA-356")
+    @allure.severity(allure.severity_level.CRITICAL)
     @parameterized.expand([
         ("065987458", "Телефон не відповідає вказаному формату"),
         ("06598521475", "Телефон не відповідає вказаному формату"),

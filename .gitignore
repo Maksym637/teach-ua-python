@@ -130,3 +130,5 @@ dmypy.json
 
 # file with credentials for admin and user
 credentials.ini
+
+allure_results
