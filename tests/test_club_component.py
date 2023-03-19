@@ -4,7 +4,6 @@ from parameterized import parameterized
 from utils.constants import Urls
 import allure
 
-
 error_messages = [
     "Опис гуртка задовгий",
     "Опис гуртка не може містити російські літери",

@@ -5,7 +5,6 @@ from parameterized import parameterized
 from utils.constants import Urls
 import allure
 
-
 combined_error_msg = [
     " не може містити більше, ніж 25 символів",
     " не може містити спеціальні символи",

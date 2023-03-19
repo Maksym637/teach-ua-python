@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from utils.constants import TimeoutVariables, Urls
 
-
 # Only for the first time :
 from selenium.webdriver.common.by import By
 
