@@ -27,6 +27,7 @@ class UserMenuComponentLocators:
 class AdminMenuComponentLocators:
     CONTENT_MENU = (By.XPATH, "//div[contains(@aria-controls, 'content-popup')]")
     CHALLENGES_MENU = (By.XPATH, "//div[contains(@aria-controls, 'challenges-submenu-popup')]")
+    TASKS_BUTTON = (By.XPATH, "//ul[contains(@id, 'challenges-submenu-popup')]//a[contains(@href, 'tasks')]")
     CHALLENGES_BUTTON = (By.XPATH, "//ul[contains(@id, 'challenges-submenu-popup')]//a[contains(@href, 'challenges')]")
 
 
@@ -151,3 +152,16 @@ class NewsCardComponentLocators:
 class ClubCardComponentLocators:
     CLUB_TITLE = (By.XPATH, ".//div[@class='name']")
     DETAILS_BUTTON = (By.XPATH, ".//button[contains(@class, 'details-button')]")
+
+
+class CalendarComponentLocators:
+    # locators to year :
+    YEAR_BUTTON = (By.XPATH, "//button[@class='ant-picker-year-btn']")
+    NEXT_YEAR_BUTTON = (By.XPATH, "//button[@class='ant-picker-header-super-next-btn']")
+    PREVIOUS_YEAR_BUTTON = (By.XPATH, "//button[@class='ant-picker-header-super-prev-btn']")
+    # locators to month :
+    MONTH_BUTTON = (By.XPATH, "//button[@class='ant-picker-month-btn']")
+    NEXT_MONTH_BUTTON = (By.XPATH, "//button[@class='ant-picker-header-next-btn']")
+    PREVIOUS_MONTH_BUTTON = (By.XPATH, "//button[@class='ant-picker-header-prev-btn']")
+    # locators to day :
+    DAY_BUTTON = (By.XPATH, "//td[contains(@class, 'ant-picker-cell-in-view')]")

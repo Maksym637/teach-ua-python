@@ -10,6 +10,7 @@ from teachua.components.add_club_component import ClubMainInfoComponent
 from teachua.components.add_centre_component import CentreMainInfoComponent
 from teachua.pages.profile_page import ProfilePage
 from teachua.pages.challenges_page import ChallengesPage
+from teachua.pages.tasks_page import TasksPage
 import allure
 
 
@@ -69,3 +70,9 @@ class AdminMenuComponent(UserMenuComponent):
         self.wait_element_to_be_clickable(self.locator_admin.CHALLENGES_MENU).click()
         self.wait_element_to_be_clickable(self.locator_admin.CHALLENGES_BUTTON).click()
         return ChallengesPage(self.driver)
+    
+    def move_to_tasks(self):
+        self.wait_element_to_be_clickable(self.locator_admin.CONTENT_MENU).click()
+        self.wait_element_to_be_clickable(self.locator_admin.CHALLENGES_MENU).click()
+        self.wait_element_to_be_clickable(self.locator_admin.TASKS_BUTTON).click()
+        return TasksPage(self.driver)

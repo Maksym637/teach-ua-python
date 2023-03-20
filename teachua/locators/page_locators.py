@@ -59,3 +59,26 @@ class AddChallengePageLocators:
     PHOTO_APPEARED = (By.XPATH, "//div[contains(@class, 'ant-upload-list-item-done')]")
     SAVE_BUTTON = (By.XPATH, "//button[contains(@class, 'add-contact-type-button')]")
     SUCCESS_MESSAGE = (By.XPATH, "//div[@class='ant-message-custom-content ant-message-success']")
+
+
+class TasksPageLocators:
+    ADD_TASK_BUTTON = (By.XPATH, "//button[contains(@class, 'add-btn')]")
+
+
+class AddTaskPageLocators:
+    START_DATE_FIELD = (By.XPATH, "//input[@id='startDate']")
+    PHOTO_FIELD = (By.XPATH, "//input[@id='picture']")
+    PHOTO_APPEARED = (By.XPATH, "//div[@class='ant-upload-list-picture-card-container']")
+    NAME_FIELD = (By.XPATH, "//input[@id='name']")
+    TITLE_FIELD = (
+        By.XPATH, "//label[text()='Заголовок']//parent::div//following-sibling::div//div[contains(@class, 'ql-editor')]/p"
+    )
+    DESCRIPTION_FIELD = (
+        By.XPATH, "//label[text()='Опис']//parent::div//following-sibling::div//div[contains(@class, 'ql-editor')]/p"
+    )
+    CHALLENGE_FIELD = (
+        By.XPATH, "//div[contains(@class, 'ant-col-14')]//div[@class='ant-select-selector']"
+    )
+    CHALLENGE_LIST = (By.XPATH, "//div[@class='rc-virtual-list-holder-inner']/*[position() <= 5]")
+    SAVE_BUTTON = (By.XPATH, "//span[text()='Зберегти']//parent::button")
+    ALERT_MESSAGE = (By.XPATH, "//div[contains(@class, 'ant-message-warning')]")
