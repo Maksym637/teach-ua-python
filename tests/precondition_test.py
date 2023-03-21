@@ -46,7 +46,7 @@ class LoginRunner(BaseTest):
             .click_log_out()
 
 
-class LoginDatabaseRunner(BaseTest):
+class LoginSessionRunner(BaseTest):
 
     def setUp(self):
         self.session = Session()

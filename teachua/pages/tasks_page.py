@@ -23,7 +23,19 @@ class AddTaskPage(BasePage):
         super().__init__(driver)
         self.locator = AddTaskPageLocators
         self.calendar = Calendar(self.driver)
-    
+
+    def are_fields_empty(self):
+        is_empty = True
+        fields = self.wait_different_elements_to_appear([
+            self.locator.NAME_FIELD, self.locator.TITLE_FIELD, self.locator.DESCRIPTION_FIELD
+        ])
+        for field in fields:
+            if (field.get_attribute("value") != None and 
+                field.get_attribute("value") != False and 
+                field.get_attribute("value") != ""):
+                is_empty = False
+        return is_empty
+
     def select_start_date(self, day, month, year):
         self.wait_element_to_be_clickable(self.locator.START_DATE_FIELD).click()
         self.calendar.select_date(day, month, year)
@@ -52,6 +64,10 @@ class AddTaskPage(BasePage):
     def choose_challenge(self, challenge_idx):
         self.wait_element_to_be_clickable(self.locator.CHALLENGE_FIELD).click()
         self.wait_elements_to_appear(self.locator.CHALLENGE_LIST)[challenge_idx].click()
+        return self
+    
+    def click_save_button(self):
+        self.wait_element_to_be_clickable(self.locator.SAVE_BUTTON).click()
         return self
     
     def get_alert_msg(self):
