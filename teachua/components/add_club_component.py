@@ -104,5 +104,8 @@ class ClubDescriptionComponent(ClubStep):
     
     @allure.step("Click on the finish button")
     def click_finish_button(self):
-        self.wait_element_to_be_clickable(self.locator.FINISH_BUTTON).click
+        self.wait_element_to_be_clickable(self.locator.FINISH_BUTTON).click()
         return self
+    
+    def get_success_msg(self):
+        return self.wait_element_to_appear(self.locator.CREATED_SUCCESS_MSG).text
