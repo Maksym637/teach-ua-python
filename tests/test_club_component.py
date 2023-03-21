@@ -4,7 +4,7 @@ from parameterized import parameterized
 from utils.constants import Urls
 import allure
 
-error_messages = [
+ERROR_MESSAGES = [
     "Опис гуртка задовгий",
     "Опис гуртка не може містити російські літери",
     "Некоректний опис гуртка\nОпис гуртка не може містити російські літери"
@@ -42,11 +42,11 @@ class TestClubComponent(LoginRunner):
         self.assertTrue(is_input_success)
 
     @parameterized.expand([
-        ("club2.1", 1, "12", "16", "1212121212", ("text;" * 300 + "!"), error_messages[0]),
-        ("club2.2", 7, "10", "16", "1313131313", ("new test data ;" * 120), error_messages[0]),
-        ("club2.3", 9, "15", "18", "2323232323", ("запрещенные слова;" * 3), error_messages[1]),
-        ("club2.4", 2, "11", "18", "2525252525", ("эъüöäЫэъüöä" * 5), error_messages[2]),
-        ("club2.5", 10, "8", "15", "1717171717", ("Aussätzige|Прокаженные" * 2), error_messages[2])
+        ("club2.1", 1, "12", "16", "1212121212", ("text;" * 300 + "!"), ERROR_MESSAGES[0]),
+        ("club2.2", 7, "10", "16", "1313131313", ("new test data ;" * 120), ERROR_MESSAGES[0]),
+        ("club2.3", 9, "15", "18", "2323232323", ("запрещенные слова;" * 3), ERROR_MESSAGES[1]),
+        ("club2.4", 2, "11", "18", "2525252525", ("эъüöäЫэъüöä" * 5), ERROR_MESSAGES[2]),
+        ("club2.5", 10, "8", "15", "1717171717", ("Aussätzige|Прокаженные" * 2), ERROR_MESSAGES[2])
     ])
     @allure.issue(f"{Urls.TEST_CASES.value}/TUA-177", "TUA-177")
     @allure.issue(f"{Urls.TEST_CASES.value}/TUA-178", "TUA-178")

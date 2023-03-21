@@ -9,19 +9,19 @@ config = configparser.ConfigParser()
 config.read(Paths.CREDENTIALS_PATH.value)
 config.sections()
 
-user = {
+USER = {
     "email": config["Admin"]["email"],
     "password": config["Admin"]["password"]
 }
 
-db = {
+DB = {
     "username": config["Database"]["db_username"],
     "password": config["Database"]["db_password"],
     "hostname": config["Database"]["db_hostname"],
     "name": config["Database"]["db_name"]
 }
 
-engine = create_engine(f"postgresql://{db['username']}:{db['password']}@{db['hostname']}/{db['name']}")
+engine = create_engine(f"postgresql://{DB['username']}:{DB['password']}@{DB['hostname']}/{DB['name']}")
 Session = sessionmaker(bind=engine)
 
 
@@ -33,8 +33,8 @@ class LoginRunner(BaseTest):
         self.home_page.header \
             .move_to_guest_menu() \
             .click_login_button() \
-            .enter_email(user["email"]) \
-            .enter_password(user["password"]) \
+            .enter_email(USER["email"]) \
+            .enter_password(USER["password"]) \
             .click_sign_in() \
             .get_success_message()
     
@@ -55,8 +55,8 @@ class LoginSessionRunner(BaseTest):
         self.home_page.header \
             .move_to_guest_menu() \
             .click_login_button() \
-            .enter_email(user["email"]) \
-            .enter_password(user["password"]) \
+            .enter_email(USER["email"]) \
+            .enter_password(USER["password"]) \
             .click_sign_in() \
             .get_success_message()
     

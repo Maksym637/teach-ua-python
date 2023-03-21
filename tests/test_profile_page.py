@@ -5,7 +5,7 @@ from parameterized import parameterized
 from utils.constants import Urls
 import allure
 
-combined_error_msg = [
+COMBINED_ERROR_MSG = [
     " не може містити більше, ніж 25 символів",
     " не може містити спеціальні символи",
     " не може містити цифри",
@@ -17,16 +17,16 @@ combined_error_msg = [
 class TestProfilePage(LoginRunner):
 
     @parameterized.expand([
-        (("firstName" * 5), "Ім'я" + combined_error_msg[0]),
-        ("!@#$%^&,", "Ім'я" + combined_error_msg[1]),
-        ("1234", "Ім'я" + combined_error_msg[2]),
-        ("-firstName", "Ім'я" + combined_error_msg[3]),
-        ("< firstName>", "Ім'я" + combined_error_msg[1]),
-        ("'firstName", "Ім'я" + combined_error_msg[3]),
-        ("firstName-", "Ім'я" + combined_error_msg[3]),
-        ("<firstName >", "Ім'я" + combined_error_msg[1]),
-        ("firstName'", "Ім'я" + combined_error_msg[3]),
-        ("", combined_error_msg[4] + "ім'я")
+        (("firstName" * 5), "Ім'я" + COMBINED_ERROR_MSG[0]),
+        ("!@#$%^&,", "Ім'я" + COMBINED_ERROR_MSG[1]),
+        ("1234", "Ім'я" + COMBINED_ERROR_MSG[2]),
+        ("-firstName", "Ім'я" + COMBINED_ERROR_MSG[3]),
+        ("< firstName>", "Ім'я" + COMBINED_ERROR_MSG[1]),
+        ("'firstName", "Ім'я" + COMBINED_ERROR_MSG[3]),
+        ("firstName-", "Ім'я" + COMBINED_ERROR_MSG[3]),
+        ("<firstName >", "Ім'я" + COMBINED_ERROR_MSG[1]),
+        ("firstName'", "Ім'я" + COMBINED_ERROR_MSG[3]),
+        ("", COMBINED_ERROR_MSG[4] + "ім'я")
     ])
     @allure.issue(f"{Urls.TEST_CASES.value}/TUA-328", "TUA-328")
     @allure.severity(allure.severity_level.CRITICAL)
@@ -45,16 +45,16 @@ class TestProfilePage(LoginRunner):
         self.assertFalse(edit_profile.is_save_changes_enabled())
 
     @parameterized.expand([
-        (("lastName" * 5), "Прізвище" + combined_error_msg[0]),
-        ("!@#$%^&,", "Прізвище" + combined_error_msg[1]),
-        ("1234", "Прізвище" + combined_error_msg[2]),
-        ("-lastName", "Прізвище" + combined_error_msg[3]),
-        ("< lasttName>", "Прізвище" + combined_error_msg[1]),
-        ("'lastName", "Прізвище" + combined_error_msg[3]),
-        ("lastName-", "Прізвище" + combined_error_msg[3]),
-        ("<lastName >", "Прізвище" + combined_error_msg[1]),
-        ("lastName'", "Прізвище" + combined_error_msg[3]),
-        ("", combined_error_msg[4] + "прізвище")
+        (("lastName" * 5), "Прізвище" + COMBINED_ERROR_MSG[0]),
+        ("!@#$%^&,", "Прізвище" + COMBINED_ERROR_MSG[1]),
+        ("1234", "Прізвище" + COMBINED_ERROR_MSG[2]),
+        ("-lastName", "Прізвище" + COMBINED_ERROR_MSG[3]),
+        ("< lasttName>", "Прізвище" + COMBINED_ERROR_MSG[1]),
+        ("'lastName", "Прізвище" + COMBINED_ERROR_MSG[3]),
+        ("lastName-", "Прізвище" + COMBINED_ERROR_MSG[3]),
+        ("<lastName >", "Прізвище" + COMBINED_ERROR_MSG[1]),
+        ("lastName'", "Прізвище" + COMBINED_ERROR_MSG[3]),
+        ("", COMBINED_ERROR_MSG[4] + "прізвище")
     ])
     @allure.issue(f"{Urls.TEST_CASES.value}/TUA-343", "TUA-343")
     @allure.severity(allure.severity_level.CRITICAL)

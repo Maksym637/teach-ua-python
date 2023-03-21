@@ -7,7 +7,7 @@ from utils.functions import get_photo_path
 from utils.constants import Urls
 import allure
 
-error_messages = [
+ERROR_MESSAGES = [
     "Поле 'Заголовок' не може бути пустим",
     "Поле 'Заголовок' може містити тільки українські та англійські літери, цифри та спеціальні символи",
     "Поле 'Заголовок' може містити мінімум 40 максимум 3000 символів"
@@ -18,13 +18,13 @@ class TestUiDatabase(LoginSessionRunner):
 
     @parameterized.expand([
         (24, 12, 2025, "test-img-1.jpg", "test-name-1", "", 
-         ("test-description-1" * 5), 1, error_messages[0]),
+         ("test-description-1" * 5), 1, ERROR_MESSAGES[0]),
         (24, 12, 2025, "test-img-1.jpg", "test-name-2", ("Aussätzige|Прокаженные" * 5), 
-         ("test-description-2" * 5), 2, error_messages[1]),
+         ("test-description-2" * 5), 2, ERROR_MESSAGES[1]),
         (24, 12, 2025, "test-img-1.jpg", "test-name-3", "test-title",
-         ("test-description-3" * 5), 3, error_messages[2]),
+         ("test-description-3" * 5), 3, ERROR_MESSAGES[2]),
         (24, 12, 2025, "test-img-1.jpg", "test-name-4", ("title-title" * 300),
-         ("test-description-4" * 5), 4, error_messages[2])
+         ("test-description-4" * 5), 4, ERROR_MESSAGES[2])
     ])
     @allure.issue(f"{Urls.TEST_CASES.value}/TUA-524", "TUA-524")
     @allure.severity(allure.severity_level.NORMAL)
