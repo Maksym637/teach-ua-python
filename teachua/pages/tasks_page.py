@@ -4,6 +4,7 @@ from teachua.locators.page_locators import (
     AddTaskPageLocators
 )
 from teachua.locators.component_locators import CalendarComponentLocators
+import allure
 
 
 class TasksPage(BasePage):
@@ -11,7 +12,8 @@ class TasksPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.locator = TasksPageLocators
-    
+
+    @allure.step("Click on the add task button")
     def click_add_task(self):
         self.wait_element_to_be_clickable(self.locator.ADD_TASK_BUTTON).click()
         return AddTaskPage(self.driver)
@@ -35,37 +37,44 @@ class AddTaskPage(BasePage):
                 field.get_attribute("value") != ""):
                 is_empty = False
         return is_empty
-
+    
+    @allure.step("Select start date : {day}-{month}-{year}")
     def select_start_date(self, day, month, year):
         self.wait_element_to_be_clickable(self.locator.START_DATE_FIELD).click()
         self.calendar.select_date(day, month, year)
         return self
     
+    @allure.step("Upload photo : photo path is {photo_path}")
     def upload_photo(self, photo_path):
         self.driver.find_element(*self.locator.PHOTO_FIELD).send_keys(photo_path)
         self.wait_element_to_appear(self.locator.PHOTO_APPEARED)
         return self
     
+    @allure.step("Enter task name : {name}")
     def enter_task_name(self, name):
         self.wait_element_to_be_clickable(self.locator.NAME_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.NAME_FIELD).send_keys(name)
         return self
     
+    @allure.step("Enter title : {title}")
     def enter_task_title(self, title):
         self.wait_element_to_be_clickable(self.locator.TITLE_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.TITLE_FIELD).send_keys(title)
         return self
     
+    @allure.step("Enter description : {description}")
     def enter_description(self, description):
         self.wait_element_to_be_clickable(self.locator.DESCRIPTION_FIELD).click()
         self.wait_element_to_be_clickable(self.locator.DESCRIPTION_FIELD).send_keys(description)
         return self
     
+    @allure.step("Choose challenge : challenge number in list is {challenge_idx}")
     def choose_challenge(self, challenge_idx):
         self.wait_element_to_be_clickable(self.locator.CHALLENGE_FIELD).click()
         self.wait_elements_to_appear(self.locator.CHALLENGE_LIST)[challenge_idx].click()
         return self
-    
+
+    @allure.step("Click save button")
     def click_save_button(self):
         self.wait_element_to_be_clickable(self.locator.SAVE_BUTTON).click()
         return self

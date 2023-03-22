@@ -71,6 +71,7 @@ class AdminMenuComponent(UserMenuComponent):
         self.wait_element_to_be_clickable(self.locator_admin.CHALLENGES_BUTTON).click()
         return ChallengesPage(self.driver)
     
+    @allure.step("Move to tasks page")
     def move_to_tasks(self):
         self.wait_element_to_be_clickable(self.locator_admin.CONTENT_MENU).click()
         self.wait_element_to_be_clickable(self.locator_admin.CHALLENGES_MENU).click()

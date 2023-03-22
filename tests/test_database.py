@@ -54,7 +54,8 @@ class TestUiDatabase(LoginSessionRunner):
         task = self.session.query(Task).filter_by(name=name).first()
 
         self.assertTrue(are_fields_empty)
-        self.assertListEqual([actual_alert_msg, task], [expected_alert_msg, None])
+        self.assertIsNone(task)
+        self.assertEqual(actual_alert_msg, expected_alert_msg)
     
     @parameterized.expand([
         (10, 10, 2030, "test-name-1", ("test-title-1" * 5), 
@@ -85,7 +86,8 @@ class TestUiDatabase(LoginSessionRunner):
         task = self.session.query(Task).filter_by(name=name).first()
 
         self.assertTrue(are_fields_empty)
-        self.assertListEqual([actual_alert_msg, task], [expected_alert_msg, None])
+        self.assertIsNone(task)
+        self.assertEqual(actual_alert_msg, expected_alert_msg)
     
     @parameterized.expand([
         (f"club-name-{int(time.time())}", 0, "10", "15", "1212121212",
