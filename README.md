@@ -5,7 +5,7 @@
 with Selenium and WebDriver Manager using Page Object Model design pattern.
 - - -
 ### Project structure:
-Here you can fin a short description of main directories and it's content.
+Here you can find a short description of main directories and it's content.
 1. *teachua*
     - *base* - super class inherited by each page and component
     - *components* - there are sets of methods which are on the modal windows
