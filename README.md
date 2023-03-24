@@ -15,6 +15,20 @@ Here you can find a short description of main directories and it's content.
 2. *tests* - there are sets of tests distributed by different functionalities
 3. *utils* - this directory contains files responsible for configuration
 - - -
+### Number of tests visualization :
+Total number of tests is **15**, there are from 1 to 3 tests per each file.
+```mermaid
+pie
+    title Number of Tests
+    "Home page" : 1
+    "Profile page" : 3
+    "News page" : 2
+    "Challenges page": 1
+    "Center component": 3
+    "Club component": 2
+    "Database": 3
+```
+- - -
 ### Main technologies :
 |Technology       |Version|
 |-----------------|-------|
